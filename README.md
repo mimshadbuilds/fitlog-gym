@@ -12,7 +12,7 @@
 
 </div>
 
-![FitLog Banner](public/banner.png)
+![FitLog Banner](public/fitlog.png)
 
 ---
 
@@ -22,7 +22,7 @@
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 ### 1. 🗂️ Workout Library
 Browse a rich collection of exercises fetched from a live API, each card showing muscle groups, equipment, difficulty, duration, calories burned, and rating — with loading skeletons for a smooth experience.
@@ -57,7 +57,7 @@ Your plan and saved lists include a summary dashboard — total exercises, combi
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
