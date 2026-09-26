@@ -12,7 +12,8 @@
 
 </div>
 
-![FitLog Banner](public/fitlog.png)
+<img width="775" height="472" alt="fitlog" src="https://github.com/user-attachments/assets/394abc34-69cd-49a8-bea1-aae7f8d6a7ba" />
+
 
 ---
 
