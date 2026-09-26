@@ -1,13 +1,15 @@
 import Image from "next/image";
 import { ILog } from "@/types/logtype";
 import { FaFire, FaRegClock, FaRegStar } from "react-icons/fa";
+import Link from "next/link";
 
-interface LibraryCardProps {
+interface LogsCardProps {
     log: ILog;
 }
 
-const LibraryCard = ({ log }: LibraryCardProps) => {
+const LogsCard = ({ log }: LogsCardProps) => {
     return (
+    <Link href={`/library/${log.id}`} className="block">
         <article className="overflow-hidden rounded-xl border border-[#292d35] bg-[#15171c] text-white">
             <div className="h-[215px] w-full overflow-hidden">
                 <Image
@@ -24,8 +26,7 @@ const LibraryCard = ({ log }: LibraryCardProps) => {
                     {log.muscleGroups.map((muscle) => (
                         <span
                         key={muscle}
-                        className="rounded-full bg-lime-400 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-black"
-                        >
+                        className="rounded-full bg-lime-400 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-black">
                         {muscle}
                         </span>
                     ))}
@@ -57,8 +58,9 @@ const LibraryCard = ({ log }: LibraryCardProps) => {
                     </div>
                 </div>
             </div>
-            </article>
+        </article>
+    </Link>
     );
 };
 
-export default LibraryCard;
+export default LogsCard;

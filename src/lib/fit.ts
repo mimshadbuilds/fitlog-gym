@@ -1,10 +1,21 @@
-export const getLogs = async () => {
-    const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
-    const log = await res.json();
-    
-    if(!log) {
-        return `no data to fetch!`;
-    }
+import { ILog } from "@/types/logtype";
 
-    return log;
+export const getLogs = async (): Promise<ILog[] | null> => {
+    try {
+        const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
+        if (!res.ok) return null;
+        return res.json();
+    } catch {
+        return null;
+    }
+}
+
+export const getLog = async (id: number): Promise<ILog | null> => {
+    try {
+        const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
+        if (!res.ok) return null;
+        return res.json();
+    } catch {
+        return null;
+    }
 }

@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link"
 import { usePathname } from "next/navigation";
 import logo from '@/assets/logo.png'
+import { useContext } from "react";
+import { PlanContext } from "@/context/PlanContext";
 
 const Navbar = () => {
+    const { myPlan, savedList } = useContext(PlanContext);
     const pathname = usePathname();
     const links = 
     <>
@@ -52,9 +55,9 @@ const Navbar = () => {
                     {links}
                     </ul>
                 </div>
-                <div className="navbar-end gap-2">
-                    <Link href="/signin" className=" text-white font-medium">Plan</Link>
-                    <Link href="/signup" className=" text-white font-medium">Saved</Link>
+                <div className="navbar-end gap-3">
+                    <Link href="/my-plan" className={`myPlan ${pathname === '/my-plan' ? 'text-[#9ae600]' : ''} text-sm font-semibold `}>Plan {`(${myPlan.length})`}</Link>
+                    <Link href="/my-plan" className={`savedList ${pathname === '/my-plan' ? 'text-[#9ae600]' : ''} text-sm font-semibold `}>Saved {`(${savedList.length})`}</Link>
                 </div>
             </div>
         </nav>
