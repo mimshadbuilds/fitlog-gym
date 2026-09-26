@@ -5,6 +5,8 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "@/components/shared/Navbar";
 import PlanProvider from "@/context/PlanContext";
 import Footer from "@/components/shared/Footer";
+import { Suspense } from 'react';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,18 +33,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} h-full antialiased`}
-    >
+      className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
           <PlanProvider>
             <ToastContainer />
-            <Navbar />
-            <main className="flex-1">
-              {children}
-          </main>
+              <Suspense fallback={null}>
+                <Navbar />
+              </Suspense>
+              <main className="flex-1">
+                {children}
+              </main>
           <Footer />
           </PlanProvider>
-        </body>
+      </body>
     </html>
   );
 }

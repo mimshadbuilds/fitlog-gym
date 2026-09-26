@@ -13,7 +13,7 @@ const Navbar = () => {
     const searchParams = useSearchParams();
     const links = 
     <>
-        {/* <li><Link className={`links ${pathname === '/'  ? 'text-blue-500' : ''mimshad.cse41''} font-semibold`} href='/'>Home</Link></li> */}
+        {/* <li><Link className={`links ${pathname === '/'  ? 'text-blue-500' : 'mimshad.cse41'} font-semibold`} href='/'>Home</Link></li> */}
         <li><Link className={`links ${pathname === '/' ? 'text-[#c2f800]' : 'text-white'} font-semibold`}  href='/'>Workout</Link></li>
         <li><Link className={`links ${pathname === '/my-plan' ? 'text-[#c2f800]' : 'text-white'} font-semibold`}  href='/my-plan'>My Plan</Link></li>
 
