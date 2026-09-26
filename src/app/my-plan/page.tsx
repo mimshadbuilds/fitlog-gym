@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 
 const MyPlans = () => {
     const { myPlan, savedList, setMyPlan, setSavedList } = useContext(PlanContext);
-
     const [sortBy, setSortBy] = useState<'rating' | 'duration' | 'caloriesBurned' | ''>('');
 
     const [activeTab, setActiveTab] = useState<'plan' | 'saved'>('plan');
