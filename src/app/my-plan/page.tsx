@@ -3,6 +3,7 @@
 import PlanLogCard from '@/components/shared/LogsPlanCard';
 import { PlanContext } from '@/context/PlanContext';
 import { ILog } from '@/types/logtype';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -10,7 +11,10 @@ const MyPlans = () => {
     const { myPlan, savedList, setMyPlan, setSavedList } = useContext(PlanContext);
     const [sortBy, setSortBy] = useState<'rating' | 'duration' | 'caloriesBurned' | ''>('');
 
-    const [activeTab, setActiveTab] = useState<'plan' | 'saved'>('plan');
+    const searchParams = useSearchParams();
+    const router = useRouter();
+
+    const activeTab = searchParams.get('tab') === 'saved' ? 'saved' : 'plan';
 
     const sortPlans = (logs: ILog[]) => {
         const sortedPlan = [...logs];
@@ -48,12 +52,12 @@ const MyPlans = () => {
             setMyPlan((item: ILog[]) => 
                 item.filter((log) => log.id !== id)
             );
-            toast.error('Removed from add plan');
+            toast.error('Workout removed from add plan!');
         } else {
             setSavedList((item: ILog[]) =>
                 item.filter((log) => log.id !== id)
             );
-            toast.error('Removed from saved list');
+            toast.error('Workout removed from saved list!');
         }
     };
 
@@ -104,22 +108,21 @@ const MyPlans = () => {
             <div className="mb-3 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex rounded-lg border border-[#232832] bg-[#13161d] p-0.5">
                     <button
-                        onClick={() => setActiveTab('plan')}
-                        className={`rounded-md px-3 py-1.5 text-[12px] font-medium ${
-                            activeTab === 'plan' 
-                            ? 'bg-[#252a32] text-white'
-                            : 'text-[#69717d]'
+                        onClick={() => router.push('/my-plan?tab=plan')}
+                        className={`rounded-md px-3 py-1.5 text-[9px] font-medium ${
+                            activeTab === 'plan'
+                                ? 'bg-[#252a32] text-white'
+                                : 'text-[#69717d]'
                         }`}>Today&apos;s Plan
                     </button>
 
                     <button
-                        onClick={() => setActiveTab('saved')}
-                        className={`rounded-md px-3 py-1.5 text-[12px] font-medium ${
+                        onClick={() => router.push('/my-plan?tab=saved')}
+                        className={`rounded-md px-3 py-1.5 text-[9px] font-medium ${
                             activeTab === 'saved'
                                 ? 'bg-[#252a32] text-white'
                                 : 'text-[#69717d]'
-                        }`}>
-                        Saved
+                        }`}>Saved
                     </button>
                 </div>
 
@@ -128,8 +131,7 @@ const MyPlans = () => {
                         Sort By
                     </span>
 
-                    <select
-                        value={sortBy}
+                    <select value={sortBy}
                         onChange={(e) =>
                             setSortBy( e.target.value as | 'rating' | 'duration' | 'caloriesBurned' | '')
                         }
@@ -162,15 +164,15 @@ const MyPlans = () => {
                     ))
                 ) : (
                     <div className="flex min-h-[180px] flex-col items-center justify-center rounded-xl border border-dashed border-[#232832] text-center">
-                        <h3 className="text-[12px] font-bold uppercase text-white">
+                        <h3 className="text-xs md:text-xl font-bold uppercase text-white">
                             Nothing here yet
                         </h3>
 
-                        <p className="mt-1 text-[12px] text-[#69717d]">
+                        <p className="mt-1 text-xs text-[#69717d]">
                             Browse the library and add a lift to get today moving.
                         </p>
 
-                        <button className="btn mt-3 h-7 min-h-7 rounded-full border-0 bg-[#b8ff00] px-4 text-[12px] font-semibold text-black hover:bg-[#a9ed00]">
+                        <button className="btn mt-3 h-7 min-h-7 rounded-full border-0 bg-[#b8ff00] px-4 text-xs font-semibold text-black hover:bg-[#a9ed00]">
                             Go to workouts
                         </button>
                     </div>

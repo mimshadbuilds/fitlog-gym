@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link"
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import logo from '@/assets/logo.png'
 import { useContext } from "react";
 import { PlanContext } from "@/context/PlanContext";
@@ -10,15 +10,16 @@ import { PlanContext } from "@/context/PlanContext";
 const Navbar = () => {
     const { myPlan, savedList } = useContext(PlanContext);
     const pathname = usePathname();
+    const searchParams = useSearchParams();
     const links = 
     <>
-        {/* <li><Link className={`links ${pathname === '/' ? 'text-blue-500' : 'text-slate-700'} font-semibold`} href='/'>Home</Link></li> */}
+        {/* <li><Link className={`links ${pathname === '/'  ? 'text-blue-500' : ''mimshad.cse41''} font-semibold`} href='/'>Home</Link></li> */}
         <li><Link className={`links ${pathname === '/' ? 'text-[#c2f800]' : 'text-white'} font-semibold`}  href='/'>Workout</Link></li>
         <li><Link className={`links ${pathname === '/my-plan' ? 'text-[#c2f800]' : 'text-white'} font-semibold`}  href='/my-plan'>My Plan</Link></li>
 
     </>
     return (
-        <nav className="bg-[#0c0d10] shadow-sm">
+        <nav className="bg-[#0c0d10] border-b border-[#29313d] shadow-sm">
             <div className="navbar max-w-[1240px] mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -55,9 +56,21 @@ const Navbar = () => {
                     {links}
                     </ul>
                 </div>
+
                 <div className="navbar-end gap-3">
-                    <Link href="/my-plan" className={`myPlan ${pathname === '/my-plan' ? 'text-[#9ae600]' : ''} text-sm font-semibold `}>Plan {`(${myPlan.length})`}</Link>
-                    <Link href="/my-plan" className={`savedList ${pathname === '/my-plan' ? 'text-[#9ae600]' : ''} text-sm font-semibold `}>Saved {`(${savedList.length})`}</Link>
+                    <Link href="/my-plan?tab=plan"
+                        className={`myPlan ${ pathname === '/my-plan' &&
+                            (searchParams.get('tab') === 'plan' || searchParams.get('tab') === null)
+                                ? 'text-[#9ae600]'
+                                : ''
+                        } text-sm font-semibold`}>Plan({myPlan.length})
+                    </Link>
+                    <Link href="/my-plan?tab=saved"
+                        className={`savedList ${ pathname === '/my-plan' && searchParams.get('tab') === 'saved'
+                                ? 'text-[#9ae600]'
+                                : ''
+                        } text-sm font-semibold`}>Saved({savedList.length})
+                    </Link>
                 </div>
             </div>
         </nav>
