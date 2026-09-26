@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import banner from '@/assets/banner.png'
+import Link from 'next/link';
 
 const Banner = () => {
     return (
@@ -9,9 +10,9 @@ const Banner = () => {
                     <h3 className='text-[11px] text-[#c2f800] font-bold text-left'>WORKOUT LIBRARY</h3>
                     <h2 className='text-2xl md:text-[55px] font-bold text-white leading-tight'>TRAIN WITH INTENT. LOG <br /> EVERY SET.</h2>
                     <p className='text-base text-slate-400'>FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.</p>
-                    <button className='flex items-center justify-center gap-2 px-4 md:px-8 py-2 md:py-4 bg-[#c2f800]/90 text-[#0c0d10] text-xs font-semibold rounded-xl shadow-md backdrop-blur-sm hover:bg-[#a1cd03] transition duration-300 mx-auto md:mx-0 uppercase'>
+                    <Link href='/library' className='flex inline-flex items-center justify-center gap-2 px-4 md:px-8 py-2 md:py-4 bg-[#c2f800]/90 text-[#0c0d10] text-xs font-semibold rounded-xl shadow-md backdrop-blur-sm hover:bg-[#a1cd03] transition duration-300 mx-auto md:mx-0 uppercase'>
                     Browse Workouts 
-                    </button>
+                    </Link>
                 </div>
                 <div className='relative flex justify-center'>
                     <Image src={banner}
