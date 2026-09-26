@@ -8,15 +8,15 @@ import { toast } from 'react-toastify';
 
 const SavedToListBtn = ({ log }: {log: ILog}) => {
     const {savedList, setSavedList} = useContext(PlanContext);
+
     const handleSaved2List = () => {
         const alreadyExists = savedList.some((item) => item.id === log.id);
 
     if (alreadyExists) {
-        toast.warning("This is already in your save list.");
+        toast.error(`${log.name} already in your save list!`);
         return;
     }
         setSavedList([...savedList, log]);
-
         toast.success(`${log.name} saved for later.`);
     }
     return (

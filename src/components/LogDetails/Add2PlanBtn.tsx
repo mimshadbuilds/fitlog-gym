@@ -8,15 +8,15 @@ import { toast } from "react-toastify";
 
 const AddToPlanBtn = ({ log }: {log: ILog}) => {
     const {myPlan, setMyPlan} = useContext(PlanContext);
+    
     const handleAdd2Plan = () => {
         const alreadyExists = myPlan.some((item) => item.id === log.id);
 
     if (alreadyExists) {
-        toast.warning("This exercise is already in your plan.");
+        toast.error(`${log.name} already in your plan!`);
         return;
     }
         setMyPlan([...myPlan, log])
-
     toast.success(`${log.name} added to Plan.`);
     }
     return (
