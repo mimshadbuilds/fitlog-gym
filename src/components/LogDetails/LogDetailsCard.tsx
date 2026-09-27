@@ -34,7 +34,7 @@ const LogDetailsCard = ({ log }: LogDetailsCardProps) => {
                         {log.muscleGroups.map((muscle) => (
                             <span
                                 key={muscle}
-                                className="rounded-full bg-[#b8ff00] px-3 py-1 text-[11px] font-bold text-black">
+                                className="rounded-full bg-[#ccff00] px-3 py-1 text-[11px] font-bold text-black">
                                 {muscle}
                             </span>
                         ))}

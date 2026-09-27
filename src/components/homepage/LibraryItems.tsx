@@ -9,7 +9,7 @@ const LibraryItems = async () => {
     // console.log('log data', logsData)
     if (!logsData) notFound();
     return (
-        <section className="max-w-[1232px] mx-auto w-full px-4 py-8">
+        <section id="library" className="max-w-[1232px] mx-auto w-full px-4 py-8">
             <div className="mb-8 text-center md:text-left">
                 <h1 className="font-serif text-2xl font-bold sm:text-3xl">THE LIBRARY</h1>
                 <p className="mt-2 text-xs text-base-content/60">Twelve lifts covering every major muscle group.</p>

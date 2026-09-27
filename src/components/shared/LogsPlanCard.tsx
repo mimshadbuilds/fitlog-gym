@@ -10,7 +10,7 @@ interface PlanLogCardProps {
 }
 
 const PlanLogCard = ({ log, onMarkDone, onRemove }: PlanLogCardProps) => {
-    
+
     return (
         <article className="flex w-full flex-col gap-3 rounded-xl border border-[#292d35] bg-[#15171c] p-2.5 text-white sm:flex-row sm:items-center sm:justify-between sm:gap-5">
             <div className="flex min-w-0 flex-1 items-center gap-3">
@@ -36,12 +36,10 @@ const PlanLogCard = ({ log, onMarkDone, onRemove }: PlanLogCardProps) => {
                             <FaRegClock className="text-[12px]" />
                             {log.duration} min
                         </span>
-
                         <span className="flex items-center gap-1 whitespace-nowrap">
                             <FaFire className="text-[12px]" />
                             {log.caloriesBurned} kcal
                         </span>
-
                         <span className="flex items-center gap-1 whitespace-nowrap">
                             <FaRegStar className="text-[12px]" />
                             {log.rating}
@@ -49,7 +47,6 @@ const PlanLogCard = ({ log, onMarkDone, onRemove }: PlanLogCardProps) => {
                     </div>
                 </div>
             </div>
-
             <div className="flex shrink-0 items-center justify-end gap-2 sm:w-auto">
                 <Link
                     href={`/library/${log.id}`}
@@ -57,12 +54,8 @@ const PlanLogCard = ({ log, onMarkDone, onRemove }: PlanLogCardProps) => {
                     View Details
                 </Link>
 
-                <button
-                    onClick={() => onMarkDone(log.id)}
-                    className="btn h-7 min-h-7 rounded-full border-0 bg-[#b8ff00] px-3 text-[12px] font-semibold text-black hover:bg-[#a9ed00]">
-                    <FaCheck className="text-[10px]" />
-                    Mark as Done
-                </button>
+            <button onClick={() => onMarkDone(log.id)} className="btn h-7 min-h-7 rounded-full border-0 bg-[#ccff00] px-3 text-[12px] font-semibold text-black hover:bg-[#a9ed00]"> 
+                <FaCheck className="text-[10px]" /> Mark as Done </button>                
                 <button
                     onClick={() => onRemove(log.id)}
                     className="btn btn-square h-7 min-h-7 w-7 rounded-full border border-[#343b47] bg-transparent text-[#a8b0bd] hover:border-red-500 hover:bg-red-500/10 hover:text-red-400"

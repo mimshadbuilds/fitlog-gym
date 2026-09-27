@@ -14,8 +14,8 @@ const Navbar = () => {
     const links = 
     <>
         {/* <li><Link className={`links ${pathname === '/'  ? 'text-blue-500' : 'mimshad.cse41'} font-semibold`} href='/'>Home</Link></li> */}
-        <li><Link className={`links ${pathname === '/' ? 'text-[#c2f800]' : 'text-white'} font-semibold`}  href='/'>Workout</Link></li>
-        <li><Link className={`links ${pathname === '/my-plan' ? 'text-[#c2f800]' : 'text-white'} font-semibold`}  href='/my-plan'>My Plan</Link></li>
+        <li><Link className={`links ${pathname === '/' ? 'text-[#ccff00]' : 'text-white'} font-semibold`}  href='/'>Workout</Link></li>
+        <li><Link className={`links ${pathname === '/my-plan' ? 'text-[#ccff00]' : 'text-white'} font-semibold`}  href='/my-plan'>My Plan</Link></li>
 
     </>
     return (
@@ -61,13 +61,13 @@ const Navbar = () => {
                     <Link href="/my-plan?tab=plan"
                         className={`myPlan ${ pathname === '/my-plan' &&
                             (searchParams.get('tab') === 'plan' || searchParams.get('tab') === null)
-                                ? 'text-[#9ae600]'
+                                ? 'text-[#ccff00]'
                                 : ''
                         } text-sm font-semibold`}>Plan({myPlan.length})
                     </Link>
                     <Link href="/my-plan?tab=saved"
                         className={`savedList ${ pathname === '/my-plan' && searchParams.get('tab') === 'saved'
-                                ? 'text-[#9ae600]'
+                                ? 'text-[#ccff00]'
                                 : ''
                         } text-sm font-semibold`}>Saved({savedList.length})
                     </Link>
