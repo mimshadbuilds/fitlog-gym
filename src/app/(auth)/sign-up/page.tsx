@@ -40,8 +40,9 @@ const handleGoogleSignIn = async () => {
 
     
     return (
-        <div className="flex min-h-[calc(100vh-64px)] items-center justify-center px-4">
-            <Form className="flex w-102 mx-auto flex-col gap-5 pl-20"
+        <div className="flex min-h-[calc(100vh-64px)] flex-col items-center justify-center px-4 py-4">
+            <h1 className="mb-5 text-center text-2xl font-bold">Sign Up</h1>
+                <Form className="mx-auto flex max-w-md flex-col gap-4 md:pl-20"
                 onSubmit={handleSignUp}>
                 <TextField className="flex flex-col gap-1"
                     isRequired
@@ -102,7 +103,7 @@ const handleGoogleSignIn = async () => {
                     </Description>
                     <FieldError />
                 </TextField>
-                <div className="flex gap-3">
+                <div className="flex justify-center gap-3">
                     <Button type="submit" variant="primary"
                         className="min-w-24">
                         Submit
@@ -112,7 +113,7 @@ const handleGoogleSignIn = async () => {
                         Reset
                     </Button>
                 </div>
-                <div className='text-center py-2 flex flex-col items-center justify-center gap-2'>
+                <div className='text-center py-1 flex flex-col items-center justify-center gap-2'>
                     <p>or</p>
                 <Button onClick={handleGoogleSignIn} type="button">Sign In with Google</Button>
                 </div>

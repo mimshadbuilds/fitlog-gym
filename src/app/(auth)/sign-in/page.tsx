@@ -31,7 +31,8 @@ const SignInPage = () => {
         toast.success("Signed in successfully!");
     }
     return (
-        <div className='flex items-center justify-center my-20'>
+        <div className='flex items-center flex-col justify-center my-20'>
+            <h1 className="mb-4 text-center text-2xl font-bold">Log In</h1>
             <Form className="flex max-w-md flex-col gap-4"
             render={(props) => <form {...props} data-custom="foo" />}
             onSubmit={handleSignIn}>
@@ -91,7 +92,7 @@ const SignInPage = () => {
                 </Description>
                 <FieldError />
             </TextField>
-            <div className="flex gap-2">
+            <div className="flex justify-center md:justify-start gap-2">
                 <Button type="submit">
                 Submit
                 </Button>
