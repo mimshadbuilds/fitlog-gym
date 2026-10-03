@@ -6,7 +6,6 @@ import Navbar from "@/components/shared/Navbar";
 import PlanProvider from "@/context/PlanContext";
 import Footer from "@/components/shared/Footer";
 import { Suspense } from 'react';
-import { Toast } from "@heroui/react/toast";
 import ToastProvider from "./ToastProvider";
 
 
