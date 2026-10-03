@@ -12,7 +12,9 @@
 
 </div>
 
+<div align="center>
 <img width="775" height="472" alt="fitlog" src="https://github.com/user-attachments/assets/394abc34-69cd-49a8-bea1-aae7f8d6a7ba" />
+</div>
 
 ---
 
@@ -58,6 +60,8 @@ FitLog includes account-related screens for **sign in**, **sign up**, **profile 
 | [React Icons](https://react-icons.github.io/react-icons/) | Iconography throughout the app |
 | [React Toastify](https://fkhademi.github.io/react-toastify/) | User feedback notifications (add/remove actions) |
 | [Context API](https://react.dev/reference/react/createContext) | Global state for plans and saved workouts |
+| [HeroUI](https://heroui.com/en/docs/react/getting-started) | An open-source UI component library |
+| [BetterAuth](https://better-auth.com/docs) | The most comprehensive authentication framework |
 | REST API | Live workout data via `fetch` (server-side data loading) |
 
 ---
@@ -134,9 +138,3 @@ Contributions are what make the open-source community such a great place to lear
 5. Open a Pull Request
 
 ---
-
-<div align="center">
-
-Made with ❤️ and 💪 by **FitLog**
-
-</div>
