@@ -14,19 +14,20 @@
 
 <img width="775" height="472" alt="fitlog" src="https://github.com/user-attachments/assets/394abc34-69cd-49a8-bea1-aae7f8d6a7ba" />
 
-
 ---
 
 ## 📖 About The Project
 
-**FitLog** is a modern fitness workout application built with **Next.js (App Router)**. It helps users discover exercises from a curated workout library, view detailed information about each workout (muscle groups, equipment, sets, reps, calories, and step-by-step instructions), build a personalized **Today's Plan**, and **save** workouts to revisit later — complete with a dashboard that summarizes total duration and calories burned.
+**FitLog** is a modern fitness workout application built with **Next.js (App Router)**. It helps users discover exercises from a curated workout library, view detailed workout information, manage a personal training plan, save favorite routines for later, and keep track of their fitness goals in a streamlined user experience.
+
+The app also includes authenticated user flows for sign-in, profile updates, password reset, and account management, giving the platform a complete workout-tracking experience beyond the library itself.
 
 ---
 
 ## Key Features
 
 ### 1. 🗂️ Workout Library
-Browse a rich collection of exercises fetched from a live API, each card showing muscle groups, equipment, difficulty, duration, calories burned, and rating — with loading skeletons for a smooth experience.
+Browse a rich collection of exercises fetched from a live API, each card showing muscle groups, equipment, difficulty, duration, calories burned, and rating — with loading states for a smooth browsing experience.
 
 ### 2. 📋 Detailed Workout Pages
 Every exercise has its own page (`/library/[logId]`) with a full description, equipment, sets & reps, calories, rating, and step-by-step instructions — plus graceful `not-found` and error handling.
@@ -39,6 +40,9 @@ Bookmark exercises into a dedicated **Saved** list so you can quickly find and p
 
 ### 5. 📊 Dashboard Stats & Smart Sorting
 Your plan and saved lists include a summary dashboard — total exercises, combined duration, and calories burned — with sorting by **duration**, **calories burned**, or **rating**.
+
+### 6. 🔐 User Authentication & Profile Management
+FitLog includes account-related screens for **sign in**, **sign up**, **profile editing**, **password change**, **forgot password**, and **reset password** flows so users can manage their fitness account within the app.
 
 ---
 
@@ -94,17 +98,27 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see FitLo
 
 ## 📁 Project Structure
 
-```
+```text
 src/
-├── app/                  # Next.js App Router pages & layouts
-│   ├── page.tsx          # Home page
-│   ├── library/          # Workout library + dynamic detail pages
-│   └── my-plan/          # Today's Plan & Saved workouts
-├── assets/               # Static images (banner, logo, etc.)
-├── components/           # UI components (shared, homepage, details, plans)
-├── context/              # PlanContext — global plan & saved state
-├── lib/                  # API fetch helpers
-└── types/                # TypeScript interfaces (ILog)
+├── app/                     # Next.js App Router pages & layouts
+│   ├── (auth)/              # Sign-in, sign-up, profile, password flows
+│   ├── api/                 # API endpoints and route handlers
+│   ├── library/             # Workout library + dynamic detail pages
+│   ├── my-plan/             # Today's Plan & Saved workouts
+│   ├── loading.tsx          # Global app loading state
+│   ├── not-found.tsx        # Custom 404 screen
+│   ├── page.tsx             # Home page
+│   └── layout.tsx           # App shell and providers
+├── assets/                  # Static images (banner, logo, etc.)
+├── components/              # UI components (homepage, details, plans)
+│   ├── homepage/
+│   ├── MyPlans/
+│   └── shared/
+├── context/                 # PlanContext — global plan & saved state
+├── lib/                     # API helpers and auth utilities
+├── types/                   # TypeScript interfaces (ILog)
+├── proxy.ts                 # Proxy/data setup helper
+└── app/globals.css          # Global styles and theme setup
 ```
 
 ---
