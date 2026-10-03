@@ -18,12 +18,10 @@ const AddToPlanBtn = ({ log }: { log: ILog }) => {
             toast.error(`${log.name} already in your plan!`);
             return;
         }
-
         if (isMaxPlan) {
             toast.error("Today's Plan already has 5 workouts!");
             return;
         }
-
         setMyPlan([...myPlan, log]);
         toast.success(`${log.name} added to Plan.`);
     };

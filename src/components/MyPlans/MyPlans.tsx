@@ -135,25 +135,23 @@ const MyPlans = () => {
                     </button>
                 </div>
 
-                        <div>
-        <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search workout or tag..."
-            className="input input-sm h-8 w-full border-[#232832] bg-[#13161d] text-[12px] text-white placeholder:text-[#69717d] md:max-w-[280px]" />
-        </div>
+                <div> 
+                    <input type="text"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Search workout or tag..."
+                        className="input input-sm h-8 w-full border-[#232832] bg-[#13161d] text-[12px] text-white placeholder:text-[#69717d] md:max-w-[280px]" />
+                </div>
 
                 <div className="flex items-center justify-center gap-3">
                     <span className="whitespace-nowrap text-[12px] text-[#69717d]">
                         Sort By
                     </span>
-                <select value={sortBy}
+                    <select value={sortBy}
                         onChange={(e) =>
-                            setSortBy( e.target.value as | 'rating' | 'duration' | 'caloriesBurned' | '')
-                        }
+                            setSortBy( e.target.value as | 'rating' | 'duration' | 'caloriesBurned' | '')}
 
-                    className="select select-sm h-8 min-h-8 border-[#232832] bg-[#13161d] px-8 text-[12px] text-white">
+                        className="select select-sm h-8 min-h-8 border-[#232832] bg-[#13161d] px-8 text-[12px] text-white">
                         <option value="" disabled>
                             Duration
                         </option>
@@ -184,11 +182,9 @@ const MyPlans = () => {
                         <h3 className="text-xs md:text-xl font-bold uppercase text-white">
                             Nothing here yet
                         </h3>
-
                         <p className="mt-1 text-xs text-[#69717d]">
                             Browse the library and add a lift to get today moving.
                         </p>
-
                         <Link href='/' className="btn mt-3 h-7 min-h-7 rounded-full border-0 bg-[#ccff00] px-4 text-xs font-semibold text-black hover:bg-[#a9ed00]">
                             Go to workouts
                         </Link>

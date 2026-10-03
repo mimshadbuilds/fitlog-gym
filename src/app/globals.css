@@ -1,6 +1,29 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui"  {
+  exclude: toast;
+}
+@import "@heroui/styles";
 
+
+@layer components {
+  .toast--accent {
+    background-color: #172554;
+    color: #bfdbfe;
+    border: 1px solid #1d4ed8;
+  }
+
+  .toast--accent .toast__title,
+  .toast--accent .toast__description {
+    color: #bfdbfe;
+  }
+
+  .toast--success {
+    background-color: #052e16;
+    color: #86efac;
+    border: 1px solid #15803d;
+  }
+
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;

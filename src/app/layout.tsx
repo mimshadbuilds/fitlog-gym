@@ -6,6 +6,8 @@ import Navbar from "@/components/shared/Navbar";
 import PlanProvider from "@/context/PlanContext";
 import Footer from "@/components/shared/Footer";
 import { Suspense } from 'react';
+import { Toast } from "@heroui/react/toast";
+import ToastProvider from "./ToastProvider";
 
 
 const geistSans = Geist({
@@ -37,13 +39,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
           <PlanProvider>
             <ToastContainer />
+            <ToastProvider>
               <Suspense fallback={null}>
-                <Navbar />
+                <header className="sticky top-0 z-50 bg-[#0c0d10]/90 backdrop-blur-md shadow-md">
+                  <Navbar />
+                </header>
               </Suspense>
               <main className="flex-1">
                 {children}
               </main>
           <Footer />
+            </ToastProvider>
           </PlanProvider>
       </body>
     </html>
