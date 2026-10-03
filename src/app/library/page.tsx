@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import LogsCard from '@/components/shared/LogsCard';
 import { getLogs } from '@/lib/fit';
 import { ILog } from '@/types/logtype';
 import { notFound } from 'next/navigation';
+
+export const metadata: Metadata = {
+    title: "Workout Library | Fitlog",
+    description: "Browse exercises by muscle group, equipment, and difficulty in the Fitlog workout library.",
+};
 
 const LibraryPage = async () => {
     const logsData = await getLogs();
