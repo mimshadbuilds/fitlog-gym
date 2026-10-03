@@ -62,6 +62,7 @@ FitLog includes account-related screens for **sign in**, **sign up**, **profile 
 | [Context API](https://react.dev/reference/react/createContext) | Global state for plans and saved workouts |
 | [HeroUI](https://heroui.com/en/docs/react/getting-started) | An open-source UI component library |
 | [BetterAuth](https://better-auth.com/docs) | The most comprehensive authentication framework |
+| [Resend](https://resend.com/docs/introduction) | Resend is the email API for developers. |
 | REST API | Live workout data via `fetch` (server-side data loading) |
 
 ---
