@@ -7,11 +7,13 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
+import { FaSearch } from 'react-icons/fa';
 
 const MyPlans = () => {
     const { myPlan, savedList, setMyPlan, setSavedList } = useContext(PlanContext);
     const [sortBy, setSortBy] = useState<'rating' | 'duration' | 'caloriesBurned' | ''>('');
     const [search, setSearch] = useState('');
+    const [showSearch, setShowSearch] = useState(false);
 
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -116,57 +118,76 @@ const MyPlans = () => {
                 </div>
             </div>
 
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex rounded-lg border border-[#232832] bg-[#13161d] p-0.5">
-                    <button onClick={() => router.push('/my-plan?tab=plan')}
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex shrink-0 rounded-lg border border-[#232832] bg-[#13161d] p-0.5">
+                    <button
+                        onClick={() => router.push('/my-plan?tab=plan')}
                         className={`rounded-md px-3 py-1.5 text-[11px] font-medium ${
                             activeTab === 'plan'
                                 ? 'bg-[#e2f39c1a] text-[#ccff00]'
                                 : 'text-[#69717d]'
-                        }`}> Today&apos;s Plan
+                        }`}
+                    >
+                        Today&apos;s Plan
                     </button>
 
-                    <button onClick={() => router.push('/my-plan?tab=saved')}
+                    <button
+                        onClick={() => router.push('/my-plan?tab=saved')}
                         className={`rounded-md px-3 py-1.5 text-[11px] font-medium ${
                             activeTab === 'saved'
                                 ? 'bg-[#e2f39c1a] text-[#ccff00]'
                                 : 'text-[#69717d]'
-                        }`}> Saved
+                        }`}
+                    >
+                        Saved
                     </button>
                 </div>
 
-                <div> 
-                    <input type="text"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        placeholder="Search workout or tag..."
-                        className="input input-sm h-8 w-full border-[#232832] bg-[#13161d] text-[12px] text-white placeholder:text-[#69717d] md:max-w-[280px]" />
+                <div className="flex items-center gap-2">
+                    <div className={`${showSearch ? 'block' : 'hidden'} md:block`}>
+                        <input
+                            type="text"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            placeholder="Search workout or tag..."
+                            className="input input-sm h-8 w-[180px] border-[#232832] bg-[#13161d] text-[12px] text-white placeholder:text-[#69717d] md:w-[280px]"
+                        />
+                    </div>
+
+                    <button
+                        type="button"
+                        onClick={() => setShowSearch(!showSearch)}
+                        className="flex h-8 items-center gap-1.5 rounded-md border border-[#232832] bg-[#13161d] px-3 text-[12px] text-[#69717d] md:hidden">
+                        <FaSearch />
+                        <span>Search</span>
+                    </button>
                 </div>
 
-                <div className="flex items-center justify-center gap-3">
-                    <span className="whitespace-nowrap text-[12px] text-[#69717d]">
-                        Sort By
-                    </span>
-                    <select value={sortBy}
-                        onChange={(e) =>
-                            setSortBy( e.target.value as | 'rating' | 'duration' | 'caloriesBurned' | '')}
+            <div className="flex shrink-0 items-center gap-2">
+                <span className="whitespace-nowrap text-[12px] text-[#69717d]">
+                    Sort By
+                </span>
 
-                        className="select select-sm h-8 min-h-8 border-[#232832] bg-[#13161d] px-8 text-[12px] text-white">
-                        <option value="" disabled>
-                            Duration
-                        </option>
-                        <option value="caloriesBurned">
-                            Calories
-                        </option>
-                        <option value="duration">
-                            Duration
-                        </option>
-                        <option value="rating">
-                            Rating
-                        </option>
-                    </select>
-                </div>
+                <select value={sortBy}
+                    onChange={(e) =>
+                        setSortBy(
+                            e.target.value as
+                                | 'rating'
+                                | 'duration'
+                                | 'caloriesBurned'
+                                | ''
+                        )
+                    }
+                    className="select select-sm h-8 min-h-8 w-31 border-[#232832] bg-[#13161d] px-2 py-1.5 text-[12px] text-white">
+                    <option value="" disabled>
+                        Duration
+                    </option>
+                    <option value="caloriesBurned">Calories</option>
+                    <option value="duration">Duration</option>
+                    <option value="rating">Rating</option>
+                </select>
             </div>
+        </div>
 
             <div className="space-y-2">
                 {filteredLogs.length > 0 ? (

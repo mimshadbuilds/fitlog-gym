@@ -7,7 +7,7 @@ import logo from '@/assets/logo.png'
 import { useContext, useState } from "react";
 import { PlanContext } from "@/context/PlanContext";
 import { authClient } from "@/lib/auth-client";
-import { Button, Spinner } from "@heroui/react";
+import { Spinner } from "@heroui/react";
 
 const Navbar = () => {
     const { myPlan, savedList } = useContext(PlanContext);
@@ -27,7 +27,8 @@ const Navbar = () => {
     }
 
     if(error) {
-        return <Link href="/sign-in" className="rounded-3xl border border-slate-50 bg-neutral-800 px-3 py-2 text-slate-400 hover:bg-[#ccff00] hover:text-neutral-100">Sign in</Link>
+        return <Link href="/sign-in" 
+        className="rounded-3xl border border-slate-50 bg-neutral-800 px-3 py-2 text-slate-400 hover:bg-[#ccff00] hover:text-neutral-100">Sign in</Link>
     }
 
     const links = 
@@ -91,7 +92,7 @@ const Navbar = () => {
         </>
 
     return (
-        <nav className="sticky top-0 z-50 bg-[#0c0d10]/90 border-b border-[#29313d] backdrop-blur-md shadow-md">
+        <nav className="border-b border-[#29313d]">
             <header className="mx-auto flex h-16 max-w-[1240px] items-stretch justify-between px-5">
                 <div className="flex items-center gap-4">
                     <button className="md:hidden"
