@@ -12,10 +12,6 @@
 
 </div>
 
-<div align="center>
-<img width="775" height="472" alt="fitlog" src="https://github.com/user-attachments/assets/394abc34-69cd-49a8-bea1-aae7f8d6a7ba" />
-</div>
-
 ---
 
 ## 📖 About The Project
@@ -128,7 +124,7 @@ src/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are what make the open-source community such a great place to learn and create. If you'd like to contribute:
 
